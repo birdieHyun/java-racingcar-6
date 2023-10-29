@@ -34,6 +34,20 @@ class ValidatorTest {
     }
 
     @Test
+    @DisplayName("자동차 이름이 공백일 경우 예외 발생")
+    void test() {
+        // given
+        String cars = "pobi,";
+
+        // when
+
+        // then
+        assertThatThrownBy(() -> GameValidator.validateZeroCarName(cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 1글자 이상 5글자 이하만 가능합니다.");
+    }
+
+    @Test
     @DisplayName("자동차 이름이 1글자 이상 5글자 이하가 아닐 경우 IllegalArgumentException 발생")
     void nameLengthExceptionTest() {
         // given
