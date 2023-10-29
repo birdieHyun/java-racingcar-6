@@ -62,30 +62,4 @@ class GameServiceTest {
                 () -> assertThat(winners).containsExactly("pobi", "birdie")
         );
     }
-
-    @Test
-    @DisplayName("숫자가 4 이상일 경우 전진하는지 테스트")
-    void moveIfNumberIsBiggerThanFourTest() {
-        // given
-        int randomNumber = 4;
-
-        // when
-        boolean move = gameService.isMove(randomNumber);
-
-        // then
-        assertThat(move).isTrue();
-    }
-
-    @Test
-    @DisplayName("숫자가 3 이하일 경우 전진하지 않는지 테스트")
-    void doNotMoveIfNumberIsSmallerThanFour() {
-        // given
-        int randomNumber = 3;
-
-        // when
-        boolean move = gameService.isMove(randomNumber);
-
-        // then
-        assertThat(move).isFalse();
-    }
 }

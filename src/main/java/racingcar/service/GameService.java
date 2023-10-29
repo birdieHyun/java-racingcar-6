@@ -38,7 +38,7 @@ public class GameService {
         return Randoms.pickNumberInRange(MIN_MOVE_NUMBER, MAX_MOVE_NUMBER);
     }
 
-    public boolean isMove(int randomNumber) {
+    private boolean isMove(int randomNumber) {
 
         return randomNumber >= MOVE_CONDITION;
     }
