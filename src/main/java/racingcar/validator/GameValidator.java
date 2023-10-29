@@ -21,6 +21,14 @@ public class GameValidator {
         }
     }
 
+    public static void validateZeroCarName(String cars) {
+
+        if (cars.endsWith(",")) {
+
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+        }
+    }
+
     public static void validateCarNamesLength(String carName) {
 
         if (carName.length() < MIN_CAR_NAME_LENGTH || carName.length() > MAX_CAR_NAME_LENGTH) {

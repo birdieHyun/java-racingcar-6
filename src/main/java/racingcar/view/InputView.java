@@ -12,11 +12,7 @@ public class InputView {
 
     public List<Car> inputCarNames() {
 
-        String cars = Console.readLine();
-        GameValidator.validateCarNumberIsOverTwo(cars);
-
-        Arrays.stream(cars.split(","))
-                .forEach(GameValidator::validateCarNamesLength);
+        String cars = getCars();
 
         return Arrays.stream(cars.split(","))
                 .map(String::trim)
@@ -33,5 +29,17 @@ public class InputView {
         GameValidator.validateTryCount(tryCount);
 
         return tryCount;
+    }
+
+    private String getCars() {
+
+        String cars = Console.readLine();
+        GameValidator.validateCarNumberIsOverTwo(cars);
+        GameValidator.validateZeroCarName(cars);
+
+        Arrays.stream(cars.split(","))
+                .forEach(GameValidator::validateCarNamesLength);
+
+        return cars;
     }
 }
