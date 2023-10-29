@@ -24,7 +24,7 @@ public class GameService {
         return cars.stream()
                 .filter(car -> car.getPosition().length() == maxPosition)
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private int makeRandomNumberForMove() {
