@@ -9,7 +9,6 @@ import racingcar.domain.Car;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -20,8 +19,6 @@ class InputViewTest {
 
     private InputView inputView;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-    private final InputStream originalIn = System.in;
 
     @BeforeEach
     void setUp() {
