@@ -8,4 +8,9 @@ public class GameService {
 
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    private boolean isMove(int randomNumber) {
+
+        return randomNumber >= 4;
+    }
 }
