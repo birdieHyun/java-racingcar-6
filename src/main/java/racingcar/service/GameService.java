@@ -8,6 +8,11 @@ import java.util.stream.Collectors;
 
 public class GameService {
 
+    private static final int MOVE_CONDITION = 4;
+    private static final int MIN_MOVE_NUMBER = 0;
+    private static final int MAX_MOVE_NUMBER = 9;
+
+
     public void moveCars(List<Car> cars) {
 
         cars.forEach(car -> {
@@ -30,12 +35,12 @@ public class GameService {
 
     private int makeRandomNumberForMove() {
 
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_MOVE_NUMBER, MAX_MOVE_NUMBER);
     }
 
     public boolean isMove(int randomNumber) {
 
-        return randomNumber >= 4;
+        return randomNumber >= MOVE_CONDITION;
     }
 
     private int findMaxPosition(List<Car> cars) {
