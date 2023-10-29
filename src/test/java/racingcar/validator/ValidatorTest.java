@@ -3,8 +3,7 @@ package racingcar.validator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatNoException;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class ValidatorTest {
 
@@ -25,7 +24,7 @@ class ValidatorTest {
 
     @Test
     @DisplayName("자동차가 두 대 이상일 경우 예외가 발생하지 않는다.")
-    void test() {
+    void twoCarNoExceptionTest() {
         // given
         String cars = "pobi,woni";
 
@@ -33,5 +32,32 @@ class ValidatorTest {
 
         // then
         assertThatNoException().isThrownBy(() -> GameValidator.validateCarNumberIsOverTwo(cars));
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 1글자 이상 5글자 이하가 아닐 경우 IllegalArgumentException 발생")
+    void nameLengthExceptionTest() {
+        // given
+        String car = "javajigi";
+
+        // when
+
+
+        // then
+        assertThatThrownBy(() -> GameValidator.validateCarNamesLength(car))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 1글자 이상 5글자 이하만 가능합니다.");
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 1글자 이상 5글자 이하일 경우 예외가 발생하지 않는다.")
+    void nameLengthNoExceptionTest() {
+        // given
+        String car = "pobi";
+
+        // when
+
+        // then
+        assertThatNoException().isThrownBy(() -> GameValidator.validateCarNamesLength(car));
     }
 }
