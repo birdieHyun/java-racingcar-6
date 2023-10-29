@@ -13,6 +13,9 @@ public class GameValidator {
     private static final int MIN_TRY_COUNT = 1;
     private static final int MAX_TRY_COUNT = 1000;
 
+    private GameValidator() {
+    }
+
 
     public static void validateCarNumberIsOverTwo(String cars) {
 
