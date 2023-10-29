@@ -7,6 +7,16 @@ import java.util.stream.Collectors;
 
 public class GameService {
 
+    public void moveCars(List<Car> cars) {
+
+        cars.forEach(car -> {
+            int randomNumber = makeRandomNumberForMove();
+            if (isMove(randomNumber)) {
+                car.move();
+            }
+        });
+    }
+
     public List<String> findWinner(List<Car> cars) {
 
         int maxPosition = findMaxPosition(cars);
