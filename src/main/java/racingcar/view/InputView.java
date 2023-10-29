@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
-    // TODO: 이름 길이 1글자 이상 5 이하인지 검증하기
     public List<Car> inputCarNames() {
 
         String cars = Console.readLine();
         GameValidator.validateCarNumberIsOverTwo(cars);
+
+        Arrays.stream(cars.split(","))
+                .forEach(GameValidator::validateCarNamesLength);
 
         return Arrays.stream(cars.split(","))
                 .map(String::trim)
