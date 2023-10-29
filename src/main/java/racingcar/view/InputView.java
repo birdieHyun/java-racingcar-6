@@ -24,11 +24,14 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
-    // TODO: 시도 횟수 1 이상인지 검증하기, int 범위로 제한하기
     public int inputTryCount() {
 
-        String tryCount = Console.readLine();
+        String tryCountString = Console.readLine();
+        GameValidator.validateIsNumber(tryCountString);
 
-        return Integer.parseInt(tryCount);
+        int tryCount = Integer.parseInt(tryCountString);
+        GameValidator.validateTryCount(tryCount);
+
+        return tryCount;
     }
 }
