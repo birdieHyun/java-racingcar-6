@@ -2,13 +2,16 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final String POSITION_SYMBOL = "-";
+    private static final String DEFAULT_POSITION = "";
+
     private final String name;
     private String position;
 
     public Car(String name) {
 
         this.name = name;
-        this.position = "";
+        this.position = DEFAULT_POSITION;
     }
 
     public static Car makeCar(String name) {
@@ -18,7 +21,7 @@ public class Car {
 
     public void move() {
 
-        this.position += "-";
+        this.position += POSITION_SYMBOL;
     }
 
     public String getName() {
