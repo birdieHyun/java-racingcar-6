@@ -28,10 +28,14 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    // TODO: 출력 성능 개선 고민해보기
-    public void printResult(Car car) {
+    public void printResult(List<Car> cars) {
+        final String NEW_LINE = "\n";
 
-        System.out.println(car.getName() + SEPARATOR + car.getPosition());
+        String gameProgress = cars.stream()
+                .map(car -> car.getName() + SEPARATOR + car.getPosition())
+                .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
+
+        System.out.println(gameProgress);
     }
 
     public void printWinner(List<Car> cars) {
