@@ -6,7 +6,6 @@ import racingcar.validator.GameValidator;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -18,8 +17,8 @@ public class InputView {
 
         return Arrays.stream(cars.split(DELIMITER))
                 .map(String::trim)
-                .map(carName -> new Car(carName))
-                .collect(Collectors.toList());
+                .map(Car::makeCar)
+                .toList();
     }
 
     public int inputTryCount() {
