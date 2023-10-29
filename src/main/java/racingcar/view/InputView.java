@@ -19,4 +19,12 @@ public class InputView {
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
     }
+
+    // TODO: 시도 횟수 1 이상인지 검증하기, int 범위로 제한하기
+    public int inputTryCount() {
+
+        String tryCount = Console.readLine();
+
+        return Integer.parseInt(tryCount);
+    }
 }
