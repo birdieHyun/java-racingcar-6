@@ -15,7 +15,6 @@ class ValidatorTest {
 
         // when
 
-
         // then
         assertThatThrownBy(() -> GameValidator.validateCarNumberIsOverTwo(cars))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -42,7 +41,6 @@ class ValidatorTest {
 
         // when
 
-
         // then
         assertThatThrownBy(() -> GameValidator.validateCarNamesLength(car))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -59,5 +57,57 @@ class ValidatorTest {
 
         // then
         assertThatNoException().isThrownBy(() -> GameValidator.validateCarNamesLength(car));
+    }
+
+    @Test
+    @DisplayName("시도 회수가 1이상 1000이하가 아닐 경우 IllegalArgumentException 발생")
+    void validateTryCountIsNumber() {
+        // given
+        int tryCount = 0;
+
+        // when
+
+        // then
+        assertThatThrownBy(() -> GameValidator.validateTryCount(tryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상 1000 이하의 숫자만 가능합니다.");
+    }
+
+    @Test
+    @DisplayName("시도 회수가 1이상 1000이하가 아닐 경우 IllegalArgumentException 발생")
+    void validateTryCountOverThousand() {
+        // given
+        int tryCount = 1001;
+
+        // when
+
+        // then
+        assertThatThrownBy(() -> GameValidator.validateTryCount(tryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상 1000 이하의 숫자만 가능합니다.");
+    }
+
+    @Test
+    @DisplayName("시도 회수가 1이상 1000이하면 예외가 발생하지 않는다.")
+    void noExceptionMaxTryCount() {
+        // given
+        int tryCount = 1000;
+
+        // when
+
+        // then
+        assertThatNoException().isThrownBy(() -> GameValidator.validateTryCount(tryCount));
+    }
+
+    @Test
+    @DisplayName("시도 회수가 1일땐 예외가 발생하지 않는다.")
+    void noExceptionMinTryCount() {
+        // given
+        int tryCount = 1;
+
+        // when
+
+        // then
+        assertThatNoException().isThrownBy(() -> GameValidator.validateTryCount(tryCount));
     }
 }

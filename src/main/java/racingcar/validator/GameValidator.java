@@ -5,7 +5,7 @@ public class GameValidator {
     private static final String ERROR = "[ERROR] ";
     private static final String TWO_CAR_ERROR_MESSAGE = ERROR + "자동차는 두 대 이상이어야 합니다.";
     private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = ERROR + "자동차 이름은 1글자 이상 5글자 이하만 가능합니다.";
-    private static final String TRY_COUNT_ERROR_MESSAGE = ERROR + "시도 횟수는 1 이상이어야 합니다.";
+    private static final String TRY_COUNT_ERROR_MESSAGE = ERROR + "시도 횟수는 1 이상 1000 이하의 숫자만 가능합니다.";
     private static final String TRY_COUNT_NUMBER_ERROR_MESSAGE = ERROR + "시도 횟수는 숫자여야 합니다.";
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
