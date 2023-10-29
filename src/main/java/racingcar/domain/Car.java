@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
 
     private static final String POSITION_SYMBOL = "-";
+    private static final int MOVE_CONDITION = 4;
 
     private final String name;
     private int position;
@@ -17,9 +18,16 @@ public class Car {
         return new Car(name);
     }
 
-    public void move() {
+    public void tryMove(int randomNumber) {
 
-        this.position++;
+        if (isMove(randomNumber)) {
+            this.position++;
+        }
+    }
+
+    private boolean isMove(int randomNumber) {
+
+        return randomNumber >= MOVE_CONDITION;
     }
 
     public String getName() {
