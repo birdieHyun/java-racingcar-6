@@ -25,13 +25,19 @@ public class GameController {
         outputView.askHowManyTimesToMove();
         int tryCounts = inputView.inputTryCount();
         outputView.printResultMessage();
-        for (int i = 0; i < tryCounts; i++) {
-            gameService.moveCars(cars);
-            outputView.printResult(cars);
-        }
+
+        progressOneRound(cars, tryCounts);
 
         List<String> winners = gameService.findWinner(cars);
 
         outputView.printWinner(winners);
+    }
+
+    private void progressOneRound(List<Car> cars, int tryCounts) {
+
+        for (int i = 0; i < tryCounts; i++) {
+            gameService.moveCars(cars);
+            outputView.printResult(cars);
+        }
     }
 }
