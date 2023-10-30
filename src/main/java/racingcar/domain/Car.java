@@ -45,11 +45,6 @@ public class Car {
         return name.value();
     }
 
-    public int getPositionValue() {
-
-        return position.value();
-    }
-
     public String getPositionSymbol() {
 
         return POSITION_SYMBOL.repeat(position.value());
