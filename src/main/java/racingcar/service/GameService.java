@@ -21,7 +21,7 @@ public class GameService {
         int maxPosition = findMaxPosition(cars);
 
         return cars.stream()
-                .filter(car -> car.getPosition().length() == maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .toList();
     }
@@ -34,7 +34,7 @@ public class GameService {
     private int findMaxPosition(List<Car> cars) {
 
         return cars.stream()
-                .mapToInt(car -> car.getPosition().length())
+                .mapToInt(car -> car.getPosition())
                 .max()
                 .orElse(0);
     }

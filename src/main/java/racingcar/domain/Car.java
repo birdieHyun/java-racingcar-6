@@ -2,7 +2,6 @@ package racingcar.domain;
 
 public class Car {
 
-    private static final String POSITION_SYMBOL = "-";
     private static final int MOVE_CONDITION = 4;
 
     private final String name;
@@ -35,8 +34,8 @@ public class Car {
         return name;
     }
 
-    public String getPosition() {
+    public int getPosition() {
 
-        return POSITION_SYMBOL.repeat(position);
+        return position;
     }
 }

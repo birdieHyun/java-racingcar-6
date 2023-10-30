@@ -18,7 +18,7 @@ class CarTest {
         pobi.tryMove(randomNumber);
 
         // then
-        assertThat(pobi.getPosition()).isEqualTo("-");
+        assertThat(pobi.getPosition()).isEqualTo(1);
     }
 
     @Test
@@ -32,6 +32,6 @@ class CarTest {
         pobi.tryMove(randomNumber);
 
         // then
-        assertThat(pobi.getPosition()).isEqualTo("");
+        assertThat(pobi.getPosition()).isEqualTo(0);
     }
 }

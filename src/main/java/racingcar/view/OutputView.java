@@ -12,6 +12,7 @@ public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String SEPARATOR = " : ";
     private static final String WINNER_MESSAGE = "최종 우승자";
+    private static final String POSITION_SYMBOL = "-";
 
     public void printStartGameMessage() {
 
@@ -32,7 +33,7 @@ public class OutputView {
         final String NEW_LINE = "\n";
 
         String gameProgress = cars.stream()
-                .map(car -> car.getName() + SEPARATOR + car.getPosition())
+                .map(car -> car.getName() + SEPARATOR + POSITION_SYMBOL.repeat(car.getPosition()))
                 .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
 
         System.out.println(gameProgress);
