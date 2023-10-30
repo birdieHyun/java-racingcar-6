@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.Position;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class GameService {
 
     public List<String> findWinner(List<Car> cars) {
 
-        int maxPosition = findMaxPosition(cars);
+        Position maxPosition = findMaxPosition(cars);
 
         return cars.stream()
                 .filter(car -> car.isAtPosition(maxPosition))
@@ -31,11 +32,11 @@ public class GameService {
         return Randoms.pickNumberInRange(MIN_MOVE_NUMBER, MAX_MOVE_NUMBER);
     }
 
-    private int findMaxPosition(List<Car> cars) {
+    private Position findMaxPosition(List<Car> cars) {
 
         return cars.stream()
-                .mapToInt(Car::getPositionValue)
-                .max()
-                .orElse(0);
+                .map(Car::getPosition)
+                .max(Position::compareTo)
+                .orElse(new Position(0));
     }
 }

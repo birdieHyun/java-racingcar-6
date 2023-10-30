@@ -26,9 +26,9 @@ public class Car {
         }
     }
 
-    private boolean isMove(int randomNumber) {
+    public boolean isAtPosition(Position position) {
 
-        return randomNumber >= MOVE_CONDITION;
+        return this.position.equals(position);
     }
 
     public String getName() {
@@ -36,9 +36,9 @@ public class Car {
         return name;
     }
 
-    public boolean isAtPosition(int position) {
+    public Position getPosition() {
 
-        return this.position.value() == position;
+        return position;
     }
 
     public int getPositionValue() {
@@ -49,5 +49,10 @@ public class Car {
     public String getPositionSymbol() {
 
         return POSITION_SYMBOL.repeat(position.value());
+    }
+
+    private boolean isMove(int randomNumber) {
+
+        return randomNumber >= MOVE_CONDITION;
     }
 }
