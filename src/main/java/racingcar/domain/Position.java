@@ -6,30 +6,30 @@ public class Position implements Comparable<Position>{
 
     private static final String POSITION_ERROR = "[ERROR] 위치는 0 이상이어야 합니다.";
     private static final int DEFAULT_POSITION = 0;
-    private final int position;
+    private final int value;
 
     public Position(int position) {
 
         if (position < DEFAULT_POSITION) {
             throw new IllegalArgumentException(POSITION_ERROR);
         }
-        this.position = position;
+        this.value = position;
     }
 
     public Position move() {
 
-        return new Position(position + 1);
+        return new Position(value + 1);
     }
 
     public int value() {
 
-        return position;
+        return value;
     }
 
     @Override
     public int compareTo(Position compareTarget) {
 
-        return Integer.compare(this.position, compareTarget.position);
+        return Integer.compare(this.value, compareTarget.value);
     }
 
     @Override
@@ -44,12 +44,12 @@ public class Position implements Comparable<Position>{
         }
 
         Position position1 = (Position) o;
-        return position == position1.position;
+        return value == position1.value;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(position);
+        return Objects.hash(value);
     }
 }
