@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 
 import java.util.List;
 
@@ -32,12 +33,12 @@ class GameServiceTest {
         List<Car> cars = List.of(pobi, birdie);
 
         // when
-        List<String> winners = gameService.findWinner(cars);
+        List<Name> winners = gameService.findWinner(cars);
 
         // then
         assertAll(
                 () -> assertThat(winners).hasSize(1),
-                () -> assertThat(winners).containsExactly("pobi")
+                () -> assertThat(winners).containsExactly(new Name("pobi"))
         );
     }
 
@@ -53,12 +54,12 @@ class GameServiceTest {
         List<Car> cars = List.of(pobi, birdie);
 
         // when
-        List<String> winners = gameService.findWinner(cars);
+        List<Name> winners = gameService.findWinner(cars);
 
         // then
         assertAll(
                 () -> assertThat(winners).hasSize(2),
-                () -> assertThat(winners).containsExactly("pobi", "birdie")
+                () -> assertThat(winners).containsExactly(new Name("pobi"), new Name("woni"))
         );
     }
 }

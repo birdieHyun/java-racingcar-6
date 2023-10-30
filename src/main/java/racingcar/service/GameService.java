@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 import racingcar.domain.Position;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class GameService {
         cars.forEach(car -> car.tryMove(makeRandomNumberForMove()));
     }
 
-    public List<String> findWinner(List<Car> cars) {
+    public List<Name> findWinner(List<Car> cars) {
 
         Position maxPosition = findMaxPosition(cars);
 

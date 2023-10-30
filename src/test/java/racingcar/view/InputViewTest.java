@@ -44,8 +44,8 @@ class InputViewTest {
         // then
         assertAll(
                 () -> assertThat(cars).hasSize(2),
-                () -> assertThat(cars.get(0).getName()).isEqualTo("pobi"),
-                () -> assertThat(cars.get(1).getName()).isEqualTo("woni")
+                () -> assertThat(cars.get(0).getNameValue()).isEqualTo("pobi"),
+                () -> assertThat(cars.get(1).getNameValue()).isEqualTo("woni")
         );
     }
 

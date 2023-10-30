@@ -5,12 +5,12 @@ public class Car {
     private static final int MOVE_CONDITION = 4;
     private static final int DEFAULT_POSITION = 0;
     private static final String POSITION_SYMBOL = "-";
-    private final String name;
+    private final Name name;
     private Position position;
 
     public Car(String name) {
 
-        this.name = name;
+        this.name = new Name(name);
         this.position = new Position(DEFAULT_POSITION);
     }
 
@@ -31,7 +31,7 @@ public class Car {
         return this.position.equals(position);
     }
 
-    public String getName() {
+    public Name getName() {
 
         return name;
     }
@@ -39,6 +39,10 @@ public class Car {
     public Position getPosition() {
 
         return position;
+    }
+    public String getNameValue() {
+
+        return name.value();
     }
 
     public int getPositionValue() {

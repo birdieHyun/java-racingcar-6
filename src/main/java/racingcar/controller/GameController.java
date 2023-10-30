@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -30,7 +31,7 @@ public class GameController {
 
         progressRounds(cars, tryCounts);
 
-        List<String> winners = gameService.findWinner(cars);
+        List<Name> winners = gameService.findWinner(cars);
 
         outputView.printWinner(winners);
     }

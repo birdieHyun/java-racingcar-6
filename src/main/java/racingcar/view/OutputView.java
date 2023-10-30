@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +13,6 @@ public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String SEPARATOR = " : ";
     private static final String WINNER_MESSAGE = "최종 우승자";
-    private static final String POSITION_SYMBOL = "-";
 
     public void printStartGameMessage() {
 
@@ -33,16 +33,20 @@ public class OutputView {
         final String NEW_LINE = "\n";
 
         String gameProgress = cars.stream()
-                .map(car -> car.getName() + SEPARATOR + car.getPositionSymbol())
+                .map(car -> car.getNameValue() + SEPARATOR + car.getPositionSymbol())
                 .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
 
         System.out.println(gameProgress);
     }
 
-    public void printWinner(List<String> cars) {
+    public void printWinner(List<Name> cars) {
         final String DELIMITER = ", ";
 
-        String winners = String.join(DELIMITER, cars);
+        List<String> winnerNames = cars.stream()
+                .map(Name::value)
+                .toList();
+
+        String winners = String.join(DELIMITER, winnerNames);
         System.out.println(WINNER_MESSAGE + SEPARATOR + winners);
     }
 }
