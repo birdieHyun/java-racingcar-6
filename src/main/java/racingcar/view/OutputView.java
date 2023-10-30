@@ -33,7 +33,7 @@ public class OutputView {
         final String NEW_LINE = "\n";
 
         String gameProgress = cars.stream()
-                .map(car -> car.getName() + SEPARATOR + POSITION_SYMBOL.repeat(car.getPosition()))
+                .map(car -> car.getName() + SEPARATOR + car.getPositionSymbol())
                 .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
 
         System.out.println(gameProgress);

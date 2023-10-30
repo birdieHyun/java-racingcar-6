@@ -19,7 +19,7 @@ class CarTest {
         pobi.tryMove(randomNumber);
 
         // then
-        assertThat(pobi.getPosition()).isEqualTo(1);
+        assertThat(pobi.getPositionValue()).isEqualTo(1);
     }
 
     @ParameterizedTest
@@ -33,6 +33,6 @@ class CarTest {
         pobi.tryMove(randomNumber);
 
         // then
-        assertThat(pobi.getPosition()).isEqualTo(0);
+        assertThat(pobi.getPositionValue()).isEqualTo(0);
     }
 }
