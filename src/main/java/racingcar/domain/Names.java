@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 public record Names(List<Name> value) {
 
-
     public String joinNamesWithDelimiter(String delimiter) {
 
         return value.stream()
