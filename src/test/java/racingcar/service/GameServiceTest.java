@@ -27,7 +27,7 @@ class GameServiceTest {
     void findWinnerTest() {
         // given
         Car pobi = Car.makeCar("pobi");
-        Car birdie = Car.makeCar("birdie");
+        Car birdie = Car.makeCar("woni");
         pobi.tryMove(5);
 
         List<Car> cars = List.of(pobi, birdie);
@@ -47,7 +47,7 @@ class GameServiceTest {
     void findTwoWinnerTest() {
         // given
         Car pobi = Car.makeCar("pobi");
-        Car birdie = Car.makeCar("birdie");
+        Car birdie = Car.makeCar("woni");
         pobi.tryMove(5);
         birdie.tryMove(5);
 

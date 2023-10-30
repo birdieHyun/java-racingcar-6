@@ -38,9 +38,6 @@ public class InputView {
         GameValidator.validateCarNumberIsOverTwo(cars);
         GameValidator.validateZeroCarName(cars);
 
-        Arrays.stream(cars.split(DELIMITER))
-                .forEach(GameValidator::validateCarNamesLength);
-
         return cars;
     }
 }
