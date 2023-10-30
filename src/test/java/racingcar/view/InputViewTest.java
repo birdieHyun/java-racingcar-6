@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.TryCount;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -57,9 +58,9 @@ class InputViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        int tryCount = inputView.inputTryCount();
+        TryCount tryCount = inputView.inputTryCount();
 
         // then
-        assertThat(tryCount).isEqualTo(3);
+        assertThat(tryCount).isEqualTo(new TryCount(3));
     }
 }

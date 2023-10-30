@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Name;
+import racingcar.domain.TryCount;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -26,7 +27,7 @@ public class GameController {
         List<Car> cars = inputView.inputCarNames();
 
         outputView.askHowManyTimesToMove();
-        int tryCounts = inputView.inputTryCount();
+        TryCount tryCounts = inputView.inputTryCount();
         outputView.printResultMessage();
 
         progressRounds(cars, tryCounts);
@@ -36,9 +37,9 @@ public class GameController {
         outputView.printWinner(winners);
     }
 
-    private void progressRounds(List<Car> cars, int tryCounts) {
+    private void progressRounds(List<Car> cars, TryCount tryCounts) {
 
-        for (int i = 0; i < tryCounts; i++) {
+        for (int i = 0; i < tryCounts.value(); i++) {
             gameService.moveCars(cars);
             outputView.printResult(cars);
         }
