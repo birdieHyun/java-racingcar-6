@@ -35,7 +35,7 @@ class ValidatorTest {
 
     @Test
     @DisplayName("자동차 이름이 공백일 경우 예외 발생")
-    void test() {
+    void blankNameExceptionTest() {
         // given
         String cars = "pobi,";
 
