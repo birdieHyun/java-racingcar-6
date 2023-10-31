@@ -46,4 +46,18 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 1글자 이상 5글자 이하만 가능합니다.");
     }
+
+    @Test
+    @DisplayName("중복된 자동차 이름이 있을 경우 예외가 발생한다.")
+    void duplicatedNameExceptionTest() {
+        // given
+        String name = "pobi,pobi";
+
+        // when
+
+        // then
+        assertThatThrownBy(() -> GameValidator.validateDuplicateCarNames(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 중복될 수 없습니다.");
+    }
 }
